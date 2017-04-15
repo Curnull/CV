@@ -1,0 +1,6 @@
+{
+  "plugins": [
+    ["transform-es2015-arrow-functions", { "spec": true }]
+  ],
+  "presets": ["es2015", "react"]
+}

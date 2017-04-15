@@ -1,0 +1,21 @@
+{
+  "name": "CV",
+  "description": "",
+  "main": "src/index.hs",
+  "authors": [
+    "Daniel Semenov"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Curnull/resume",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.7",
+    "bootswatch-sass": "^3.3.1"
+  }
+}
