@@ -1,12 +1,12 @@
 {
-  "name": "CV",
+  "name": "cv-client",
   "description": "",
   "main": "src/index.hs",
   "authors": [
     "Daniel Semenov"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/Curnull/resume",
+  "homepage": "https://github.com/Curnull/cv-client",
   "ignore": [
     "**/.*",
     "node_modules",

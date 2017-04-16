@@ -2,8 +2,6 @@
  * Created by curnull on 31/03/2017.
  */
 const path = require('path');
-var BowerWebpackPlugin = require("bower-webpack-plugin");
-const copyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 module.exports = {
@@ -12,8 +10,12 @@ module.exports = {
   resolve: {
     modules: ["node_modules", "bower_components"],
     alias: {
-      "jquery": "jquery/dist/jquery.min.js",
-    }
+      "jquery": "jquery/dist/jquery.min.js"
+    },
+    extensions: ['.js', '.jsx']
+  },
+  devServer: {
+    historyApiFallback: true
   },
   entry: {
     app: [
@@ -32,6 +34,11 @@ module.exports = {
         test: /\.jsx$/,
         exclude: /node_modules|bower_components/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/, 
+        loader: 'eslint-loader'
       },
       {
         test: /\.js$/,
@@ -54,16 +61,19 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: "css-loader",
+          use: "css-loader"
         })
       },
       {
         test: /\.woff2?$|\.ttf$|\.eot$|\.svg$|\.png|\.jpe?g|\.gif$/,
         use: 'file-loader'
       }
-    ],
+    ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'SERVER_ADDR': JSON.stringify('http://0.0.0.0:3000')
+    }),
     new webpack.LoaderOptionsPlugin({
       debug: true
     }),
@@ -71,14 +81,13 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery",
       React: "react",
+      ReactDOM: "react-dom",
+      PropTypes: "prop-types"
     }),
     new ExtractTextPlugin({
       filename: 'styles.css',
       allChunks: true
-    }),
-    new copyWebpackPlugin([
-      { from: 'src/img', to: 'img/' }
-    ])
+    })
   ]
 
 };

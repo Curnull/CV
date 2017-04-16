@@ -1,7 +1,16 @@
-import ReactDOM from 'react-dom';
-import react from 'react';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 import './styles/styles.sass';
+import CVContainer from './containers/CVContainer';
+import CVReducer from './reducers/CVReducer';
+
+
+const store = createStore(CVReducer, undefined, applyMiddleware(thunkMiddleware));
 
 ReactDOM.render(
-  <div>Hello World!</div>,
+  <Provider store={store}>
+    <CVContainer />
+  </Provider>,
   document.getElementById('app-container'));
+

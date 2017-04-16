@@ -1,0 +1,35 @@
+{
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    // disable requiring trailing commas because it might be nice to revert to
+    // being JSON at some point, and I don't want to make big changes now.
+    "comma-dangle": 0,
+    // disabled because I find it tedious to write tests while following this
+    // rule
+    "no-shadow": 0,
+    // until all of our libraries are ES6, we need this
+    "func-names": 0,
+    // ehhh
+    "no-unused-vars": 0,
+    "guard-for-in": 0,
+    "no-loop-func": 0,
+    "react/jsx-quotes": 0,
+    "react/react-in-jsx-scope": 0,
+    "import/no-named-as-default": 0,
+    "import/no-extraneous-dependencies": 0,
+    "jsx-quotes": 1,
+    "arrow-body-style": 0,
+    "no-param-reassign": 0,
+    // react router throw warnings if we use stateless components for routes
+    "react/prefer-stateless-function": 0,
+    "global-require": 0,
+    //
+    "no-undef": 0
+  }
+}

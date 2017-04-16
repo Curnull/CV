@@ -3,3 +3,10 @@
 @import "../../bower_components/bootswatch-sass/paper/variables"
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap"
 @import "../../bower_components/bootswatch-sass/paper/bootswatch"
+
+
+@mixin trRotRotY($trX, $trY, $rot, $rotY)
+  -webkit-transform: rotate($rot) translate($trX, $trY) rotateY($rotY)
+  -ms-transform: rotate($rot) translate($trX, $trY) rotateY($rotY)
+  -o-transform: rotate($rot) translate($trX, $trY) rotateY($rotY)
+  transform: rotate($rot) translate($trX, $trY) rotateY($rotY)

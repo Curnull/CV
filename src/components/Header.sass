@@ -1,0 +1,12 @@
+@import '../styles/theme'
+
+.navbar-brand
+  padding: 7px 15px
+  @include animation(appearing-from-left ease-in-out 1.5s)
+  .name
+    font-weight: 500
+
+
+@keyframes appearing-from-left
+  0%
+    @include translate(-800px, 0)

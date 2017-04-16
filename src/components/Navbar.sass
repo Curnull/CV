@@ -1,0 +1,28 @@
+@import '../styles/theme'
+
+#left-navbar
+  padding-left: 0
+  .nav
+    min-width: 201px
+    &.affix
+      top: 20px
+    perspective: 1000px
+    li
+      display: block
+      opacity: 0
+      @include transform-origin(left center)
+      @for $i from 1 through 10
+        &:nth-child(#{$i})
+          @include animation-name(build)
+          @include animation-duration(1s + ($i * 0.2))
+          @include animation-timing-function(ease)
+          @include animation-fill-mode(forwards)
+
+
+@keyframes build
+  from
+    @include opacity(0)
+    @include trRotRotY(0, 10px, 0, -90deg)
+  to
+    @include opacity(1)
+    @include trRotRotY(0, 0px, 0, 0deg)
