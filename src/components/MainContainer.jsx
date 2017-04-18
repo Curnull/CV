@@ -12,5 +12,5 @@ MainContainer.defaultProps = {
 };
 
 MainContainer.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element)
+  children: PropTypes.node
 };

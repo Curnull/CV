@@ -10,19 +10,47 @@ import { cvShape } from '../utils/shapes';
 import * as actions from '../actions/CVActions';
 
 export class CVContainer extends React.Component {
+  constructor(...args) {
+    super(...args);
+    this.navbarId = 'left-navbar';
+    this.onRenderMainContainer = this.onRenderMainContainer.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.cv) {
+      $('.loading').addClass('transparent');
+      $('body').removeClass('no-overflow');
+    }
+  }
+
+  onRenderMainContainer() {
+    $('body').scrollspy({ target: `#${this.navbarId}` });
+    $(`#${this.navbarId} ul`).affix({
+      offset: {
+        top: 80
+      }
+    });
+  }
+
   render() {
     if (!this.props.cv) {
-      this.props.fetchCV(location.pathname.replace('/', ''));
+      // const pathNames = _.reject(location.pathname.split('/'), v => !v || v === '/');
+      // const cvName = pathNames[0];
+      // const lang = pathNames[1] || 'en';
+      let cvLink = location.pathname;
+      cvLink = cvLink[0] === '/' ? cvLink.substring(1) : cvLink;
+      this.props.fetchCV(cvLink);
       return null;
     }
     const navbarItems = _.map(this.props.cv.sections, (section) => {
       return { name: section.name, title: section.title, icon: section.icon };
     });
+
     return (
       <div>
         <HeaderContainer />
-        <MainContainer>
-          <NavbarContainer items={navbarItems} />
+        <MainContainer ref={this.onRenderMainContainer}>
+          <NavbarContainer items={navbarItems} id={this.navbarId} />
           <ContentContainer sections={this.props.cv.sections} />
         </MainContainer>
       </div>
@@ -41,7 +69,7 @@ CVContainer.defaultProps = {
 };
 
 CVContainer.propTypes = {
-  cv: cvShape,
+  cv: PropTypes.shape(cvShape),
   fetchCV: PropTypes.func.isRequired
 };
 

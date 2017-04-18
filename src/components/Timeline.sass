@@ -1,0 +1,139 @@
+/** timeline box structure *
+@import "../styles/theme"
+.timeline
+  list-style: none
+  padding: 20px 0 0
+  position: relative
+  margin-left: 40px
+  &:before
+    top: 0
+    bottom: 0
+    position: absolute
+    content: " "
+    width: 3px
+    background-color: $blockquote-border-color
+    left: 0
+    margin-left: -1.5px
+.tldate
+  display: inline-block
+  width: auto
+  color: $btn-default-color
+  opacity: 0.9
+  background-color: $gray-light
+  margin-left: -20px
+  padding: 3px 20px
+  font-weight: bold
+  text-align: center
+  border-radius: 3px
+  @include box-shadow(1px 1px 4px rgba(0,0,0,.4))
+  &.success
+    color: $btn-success-color
+    background-color: $brand-success
+  &.primary
+    background-color: $brand-primary
+    color: $btn-primary-color
+
+.timeline li
+  margin-bottom: 25px
+  position: relative
+  &:before
+    content: " "
+    display: table
+  &:after
+    content: " "
+    display: table
+    clear: both
+  &:before, &:after
+    content: " "
+    display: table
+  .timeline-panel
+    width: 90%
+    margin-left: 35px
+    background: $body-bg
+    border: 1px solid $blockquote-border-color
+    padding: 20px
+    position: relative
+    border-radius: 8px
+    @include box-shadow(1px 1px 4px rgba(0,0,0,.4))
+    &:before
+      position: absolute
+      top: 15px
+      left: -15px
+      right: auto
+      display: inline-block
+      border-top: 15px solid transparent
+      border-left: 15px solid $blockquote-border-color
+      border-right: 0 solid $blockquote-border-color
+      border-bottom: 15px solid transparent
+      content: " "
+      border-left-width: 0
+      border-right-width: 15px
+
+
+    &:after
+      position: absolute
+      top: 16px
+      left: -13px
+      right: auto
+      display: inline-block
+      border-top: 13px solid transparent
+      border-left: 13px solid $body-bg
+      border-right: 0 solid $body-bg
+      border-bottom: 13px solid transparent
+      content: " "
+      border-left-width: 0
+      border-right-width: 14px
+
+
+    &.noarrow
+      &:before, &:after
+        top: 0
+        right: 0
+        display: none
+        border: 0
+
+  .tl-circ
+    position: absolute
+    top: 13px
+    left: 0%
+    text-align: center
+    background: $brand-warning
+    color: $btn-warning-color
+    width: 35px
+    height: 35px
+    line-height: 35px
+    margin-left: -16px
+    border: 3px solid $alert-warning-border
+    border-top-right-radius: 50%
+    border-top-left-radius: 50%
+    border-bottom-right-radius: 50%
+    border-bottom-left-radius: 50%
+    z-index: 500
+    i
+      position: relative
+      top: -2px
+
+/** timeline panels *
+
+/** panel arrows *
+
+/** timeline circle icons *
+
+/** timeline content *
+
+.tl-heading h4
+  margin: 0
+  color: $headings-color
+
+.tl-body
+  p, ul
+    margin-bottom: 0
+  > p + p
+    margin-top: 5px
+
+/** media queries *
+
+@media (max-width: 700px)
+  .timeline
+    padding: 10px 0 0
+    margin-left: 10px

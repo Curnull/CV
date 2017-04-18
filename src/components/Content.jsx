@@ -7,5 +7,5 @@ Content.defaultProps = {
 };
 
 Content.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element)
+  children: PropTypes.node
 };

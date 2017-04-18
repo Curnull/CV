@@ -1,9 +1,10 @@
 import { sectionShape } from '../utils/shapes';
 import Icon from './Icon';
+import * as sass from './Section.sass';
 
 export default function Section(props) {
   return (
-    <div className="row" id={props.name}>
+    <div className="row section" id={props.name}>
       <div className="col-lg-12">
         <h4>
           <Icon icon={props.icon} /> {props.title}
@@ -12,6 +13,7 @@ export default function Section(props) {
       </div>
       <div className="col-lg-12">
         {props.children}
+        <br />
       </div>
     </div>
   );

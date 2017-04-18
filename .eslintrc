@@ -21,6 +21,7 @@
     "no-loop-func": 0,
     "react/jsx-quotes": 0,
     "react/react-in-jsx-scope": 0,
+    "react/no-array-index-key": 0,
     "import/no-named-as-default": 0,
     "import/no-extraneous-dependencies": 0,
     "jsx-quotes": 1,

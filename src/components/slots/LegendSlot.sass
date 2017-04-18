@@ -1,0 +1,28 @@
+@import '../../styles/theme'
+
+.legend
+  margin: auto
+  text-align: center
+  .legend-item
+    display: inline-block
+    margin: 10px
+    .legend-item-color
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      display: inline-block
+      background-color: $label-default-bg
+      position: relative
+      top: 5px
+      &.success
+        background-color: $label-success-bg
+      &.warning
+        background-color: $label-warning-bg
+      &.primary
+        background-color: $label-primary-bg
+      &.info
+        background-color: $label-info-bg
+      &.danger
+        background-color: $label-danger-bg
+      &.default
+        background-color: $label-default-bg
