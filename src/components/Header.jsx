@@ -6,7 +6,7 @@ export default function Header(props) {
     <div className="navbar navbar-default">
       <div className="container">
         <div className="navbar-header">
-          <a href="../" className="navbar-brand">
+          <a href="" className="navbar-brand">
             <img src={props.img} alt={props.name} className="img-circle" width="50" />
             <span className="name"> {props.name}</span>
             <span className="hidden-xs"> - {props.post}</span>

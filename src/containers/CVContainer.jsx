@@ -19,6 +19,9 @@ export class CVContainer extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.cv) {
       $('.loading').addClass('transparent');
+      setTimeout(() => {
+        $('.loading').remove();
+      }, 1500);
       $('body').removeClass('no-overflow');
     }
   }
@@ -30,13 +33,14 @@ export class CVContainer extends React.Component {
         top: 80
       }
     });
+    // Jump to current(from hash) section after rendering of all sections
+    const hash = location.hash;
+    location.hash = '';
+    location.hash = hash;
   }
 
   render() {
     if (!this.props.cv) {
-      // const pathNames = _.reject(location.pathname.split('/'), v => !v || v === '/');
-      // const cvName = pathNames[0];
-      // const lang = pathNames[1] || 'en';
       let cvLink = location.pathname;
       cvLink = cvLink[0] === '/' ? cvLink.substring(1) : cvLink;
       this.props.fetchCV(cvLink);

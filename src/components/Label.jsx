@@ -1,9 +1,8 @@
+import { labelShape } from '../utils/shapes';
+
 export default function Label(props) {
-  const className = `label ${props.type ? `label-${props.type}` : ''}`;
+  const className = `label ${props.type ? `label-${props.color}` : ''}`;
   return <span className={className}>{props.value}</span>;
 }
 
-Label.propTypes = {
-  type: PropTypes.oneOf(['success', 'danger', 'info', 'warning', 'primary']).isRequired,
-  value: PropTypes.node.isRequired
-};
+Label.propTypes = labelShape;

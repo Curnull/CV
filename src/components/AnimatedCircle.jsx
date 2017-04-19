@@ -10,7 +10,7 @@ export default function AnimatedCircle(props) {
   };
   return (
     <div
-      className={`circle circle-${props.colorClass}`}
+      className={`circle circle-${props.color}`}
       data-toggle="tooltip"
       title={props.description}
       ref={initTooltip}

@@ -9,7 +9,7 @@ export default function Legend(props) {
         {props.items.map((item, index) => {
           return (
             <div className="legend-item" key={index}>
-              <div className={`legend-item-color ${item.type}`} /> - {item.value}
+              <div className={`legend-item-color ${item.color}`} /> - {item.value}
             </div>
           );
         })}

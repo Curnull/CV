@@ -1,5 +1,5 @@
 export default function CustonHtmlSlot(props) {
-  return <div dangerouslySetInnerHTML={{ __html: props.html }} />;
+  return <span dangerouslySetInnerHTML={{ __html: props.html }} />;
 }
 
 CustonHtmlSlot.propTypes = {

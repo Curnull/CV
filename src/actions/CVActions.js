@@ -1,3 +1,5 @@
+import * as f from 'whatwg-fetch';
+
 export const SET_CV = 'SET_CV';
 
 export function setCV(cv) {

@@ -1,10 +1,11 @@
 import Media from '../Media';
-import CustomHtmlSlot from './CustomHtmlSlot';
+import Node from '../Node';
+import { nodeShape } from '../../utils/shapes';
 
 export default function MediaSlot(props) {
-  return <Media {...props}><CustomHtmlSlot html={props.bodyHtml} /></Media>;
+  return <Media {...props}><Node node={props.body} /></Media>;
 }
 
 MediaSlot.propTypes = {
-  bodyHtml: PropTypes.string.isRequired
+  body: nodeShape.isRequired
 };

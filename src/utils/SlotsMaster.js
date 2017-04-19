@@ -1,21 +1,17 @@
-import customHtml from '../components/slots/CustomHtmlSlot';
 import descriptionList from '../components/slots/DescriptionListSlot';
-import labelsDescriptionList from '../components/slots/LabelsDescriptionListSlot';
 import legendSlot from '../components/slots/LegendSlot';
 import timelineSlot from '../components/slots/TimelineSlot';
 import animatedCirlceSlot from '../components/slots/AnimatedCircleSlot';
 import mediaSlot from '../components/slots/MediaSlot';
 import wellSlot from '../components/slots/WellSlot';
+import listSlot from '../components/slots/ListSlot';
+import labelSlot from '../components/slots/LabelSlot';
+import iconSlot from '../components/slots/IconSlot';
+
 
 const list = {
-  customHtml: {
-    component: customHtml
-  },
   descriptionList: {
     component: descriptionList
-  },
-  labelsDescriptionList: {
-    component: labelsDescriptionList
   },
   legend: {
     component: legendSlot
@@ -31,6 +27,15 @@ const list = {
   },
   well: {
     component: wellSlot
+  },
+  list: {
+    component: listSlot
+  },
+  label: {
+    component: labelSlot
+  },
+  icon: {
+    component: iconSlot
   }
 };
 

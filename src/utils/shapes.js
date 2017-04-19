@@ -1,5 +1,19 @@
 export const labelTypes = ['success', 'danger', 'info', 'warning', 'primary', 'default'];
 
+function lazyFunction(f) {
+  return function (...args) {
+    return f().apply(this, ...args);
+  };
+}
+
+export const nodeShape = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.arrayOf(PropTypes.any),
+  PropTypes.shape({
+    type: PropTypes.string.isRequired
+  })
+]);
+
 export const personInfoShape = {
   name: PropTypes.string.isRequired,
   post: PropTypes.string.isRequired,
@@ -9,12 +23,13 @@ export const personInfoShape = {
 export const sectionShape = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  slots: nodeShape
 };
 
 export const linkShape = {
   title: PropTypes.string.isRequired,
-  url:  PropTypes.string.isRequired
+  url: PropTypes.string.isRequired
 };
 
 export const cvShape = {
@@ -24,35 +39,25 @@ export const cvShape = {
 };
 
 export const descriptionListItemShape = {
-  title: PropTypes.string.isRequired,
-  titleIcon: PropTypes.string,
-  value: PropTypes.string.isRequired
+  title: nodeShape.isRequired,
+  value: nodeShape.isRequired
 };
 
 export const labelShape = {
-  type: PropTypes.oneOf(labelTypes).isRequired,
+  color: PropTypes.oneOf(labelTypes).isRequired,
   value: PropTypes.node.isRequired
 };
 
-export const labelsDescriptionListItemShape = {
-  ...descriptionListItemShape,
-  value: PropTypes.arrayOf(PropTypes.shape(labelShape))
-};
-
-export const timelineSlotCustomHtmlPanelShape = {
-  html: PropTypes.string.isRequired
-};
-
 export const timelineSlotGroupShape = {
-  title: PropTypes.string.isRequired,
+  title: nodeShape.isRequired,
   type: PropTypes.oneOf(['success', 'primary', 'default']),
-  panels: PropTypes.arrayOf(PropTypes.shape(timelineSlotCustomHtmlPanelShape))
+  panels: PropTypes.arrayOf(nodeShape)
 };
 
 export const animatedCircleShape = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  colorClass: PropTypes.oneOf(labelTypes).isRequired,
+  color: PropTypes.oneOf(labelTypes).isRequired,
   icon: PropTypes.string.isRequired
 };
 
