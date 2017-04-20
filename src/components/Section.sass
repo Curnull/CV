@@ -4,4 +4,8 @@
   @include animation(appearing ease-in-out 1.5s)
 
 .section:last-child
-  margin-bottom: 300px
+  margin-bottom: 100px
+
+@media (min-width: $screen-lg-min)
+  .section:last-child
+    margin-bottom: 200px !important

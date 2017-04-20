@@ -54,8 +54,8 @@ export class CVContainer extends React.Component {
       <div>
         <HeaderContainer />
         <MainContainer ref={this.onRenderMainContainer}>
-          <NavbarContainer items={navbarItems} id={this.navbarId} />
           <ContentContainer sections={this.props.cv.sections} />
+          <NavbarContainer items={navbarItems} id={this.navbarId} />
         </MainContainer>
       </div>
     );

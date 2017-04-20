@@ -10,7 +10,7 @@
     li
       display: block
       opacity: 0
-      @include transform-origin(left center)
+      @include transform-origin(right center)
       @for $i from 1 through 10
         &:nth-child(#{$i})
           @include animation-name(build)
@@ -22,7 +22,7 @@
 @keyframes build
   from
     @include opacity(0)
-    @include trRotRotY(0, 10px, 0, -90deg)
+    @include trRotRotY(0, 10px, 0, 90deg)
   to
     @include opacity(1)
     @include trRotRotY(0, 0px, 0, 0deg)
