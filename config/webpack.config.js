@@ -72,7 +72,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'SERVER_ADDR': JSON.stringify('http://192.168.1.100:3000')
+      'SERVER_ADDR': JSON.stringify('http://0.0.0.0:3000')
     }),
     new webpack.LoaderOptionsPlugin({
       debug: true

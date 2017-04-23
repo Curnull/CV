@@ -11,7 +11,7 @@ export function setCV(cv) {
 
 export function fetchCV(cvName) {
   return (dispatch) => {
-    return fetch(`${SERVER_ADDR}/cv/${cvName}`)
+    return fetch(`${API_ADDR}/cv/${cvName}`)
       .then(response => response.json())
       .then(cv =>
         dispatch(setCV(cv))
