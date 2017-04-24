@@ -37,6 +37,7 @@ export class CVContainer extends React.Component {
     const hash = location.hash;
     location.hash = '';
     location.hash = hash;
+    document.title = this.props.cv.name;
   }
 
   render() {
